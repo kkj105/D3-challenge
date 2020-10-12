@@ -17,7 +17,7 @@ var height = svgHeight - margin.top - margin.bottom;
 
 // Select body, append SVG are to it, and set the dimensions
 var svg = d3
-  .select(".row")
+  .select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
@@ -118,10 +118,12 @@ d3.csv("data.csv").then(function(healthRiskData, err) {
 
     // create x scale function
     var xLinearScale = xScale(healthRiskData, chosenXaxis);
+    
+    chosenYaxis = "smokes"
 
     // create y scale function
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(healthRiskData, d => d.smokes)])
+        .domain([0, d3.max(healthRiskData, d => d[chosenYaxis])])
         .range([height, 0]);
     
     // create initial axis functions
@@ -139,17 +141,16 @@ d3.csv("data.csv").then(function(healthRiskData, err) {
         .call(leftAxis);
 
     // build the scatter chart using healthRiskData
-    var scatterGroup = chartGroup.select(".scatter")
+    var scatterGroup = chartGroup.selectAll(".scatter")
         .data(healthRiskData)
         .enter()
-        .append("dot")
+        .append("circle")
         .classed("stateCircle", true)
-        .classed("stateText", true)
-        .append("dot")
+        // .classed("stateText", true)
         .attr("cx", d => xLinearScale(d[chosenXaxis]))
         .attr("cy", d => yLinearScale(d[chosenYaxis]))
-        .attr("r", 4)
-        .attr("fill", ".stateCircle")
+        .attr("r", 15)
+        // .attr("fill", ".stateCircle")
     
     // create group for three x-axis labels
     var xlabelsGroup = chartGroup.append("g")
