@@ -62,7 +62,7 @@
     font-size: 14px;
   }
 }
-/* abc */
+
 @media screen and (max-width: 400px) {
   .aText {
     font-size: 13px;

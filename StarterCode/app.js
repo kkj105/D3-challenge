@@ -76,7 +76,7 @@ function renderYAxes(newYscale, yAxis) {
 
 // function used for updating scatter group with a transition to new scatter plot
 function renderXScatter(circlesGroup, newXscale, chosenXaxis) {
-
+    console.log("hello")
     circlesGroup.transition()
         .duration(1000)
         .attr("cx", d => newXscale(d[chosenXaxis]));
