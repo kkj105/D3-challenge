@@ -264,7 +264,7 @@ d3.csv("data.csv").then(function(healthRiskData, err) {
 
                 // replaces chosenXaxis with value
                 chosenXaxis = value;
-                console.log(chosenXaxis);
+                // console.log(chosenXaxis);
 
                 // updates x scale for new data
                 xLinearScale = xScale(healthRiskData, chosenXaxis);
@@ -323,7 +323,7 @@ d3.csv("data.csv").then(function(healthRiskData, err) {
 
             // replaces chosenXaxis with value
             chosenYaxis = value;
-            console.log(chosenYaxis);
+            // console.log(chosenYaxis);
 
             // updates x scale for new data
             yLinearScale = yScale(healthRiskData, chosenYaxis);
