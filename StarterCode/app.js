@@ -1,6 +1,6 @@
 var xlabelsSelect
 var xlabelsGroup
-// =================================
+
 // Define SVG are dimensions
 var svgWidth = 960;
 var svgHeight = 500;
