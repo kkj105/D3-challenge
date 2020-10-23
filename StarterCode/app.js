@@ -76,7 +76,7 @@ function renderYAxes(newYscale, yAxis) {
 
 // function used for updating scatter group with a transition to new scatter plot
 function renderXScatter(circlesGroup, newXscale, chosenXaxis) {
-    console.log("hello")
+    
     circlesGroup.transition()
         .duration(1000)
         .attr("cx", d => newXscale(d[chosenXaxis]));
@@ -252,7 +252,8 @@ d3.csv("data.csv").then(function(healthRiskData, err) {
     var scatterGroup = updateToolTip(chosenXaxis, scatterGroup);
 
     xlabelsSelect = xlabelsGroup.selectAll("text")
-    console.log(xlabelsSelect)
+    // console.log(xlabelsSelect)
+    
     // x axis labels event listener
     xlabelsSelect
         .on("click", function() {
